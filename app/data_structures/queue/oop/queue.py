@@ -1,6 +1,9 @@
 from typing import Any, List
 
 
+# The Queue class represents a first-in, first-out (FIFO) data structure.
+# It supports two main operations: enqueue, which adds an item to the rear of the queue,
+# and dequeue, which removes and returns the front item from the queue.
 class Queue:
     def __init__(self) -> None:
         """
@@ -14,12 +17,16 @@ class Queue:
         """
         return len(self.items) == 0
 
+    # The enqueue operation has a time complexity of O(1) because it simply appends
+    # the item to the end of the list, which is a constant-time operation.
     def enqueue(self, item: Any) -> None:
         """
         Add an item to the rear of the queue.
         """
         self.items.append(item)
 
+    # The dequeue operation has a time complexity of O(n) because it involves removing
+    # the first item from the list, which requires shifting all other elements by one position.
     def dequeue(self) -> Any:
         """
         Remove and return the front item from the queue.
@@ -34,10 +41,6 @@ class Queue:
         """
         return len(self.items)
 
-
-# The Queue class represents a first-in, first-out (FIFO) data structure.
-# It supports two main operations: enqueue, which adds an item to the rear of the queue,
-# and dequeue, which removes and returns the front item from the queue.
 
 if __name__ == '__main__':
     # Create a new queue

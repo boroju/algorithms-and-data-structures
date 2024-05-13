@@ -1,5 +1,5 @@
 import unittest
-from app.algorithms.sorting.poo.mergesort import MergeSort
+from app.algorithms.sorting.oop.mergesort import MergeSort
 
 
 class MergeSortAlgorithmTest(unittest.TestCase):

@@ -6,6 +6,7 @@ class InnerJoin:
         self.arr1 = arr1
         self.arr2 = arr2
 
+    # O(n + m)
     def inner_join(self, key: str) -> List[Dict[str, int]]:
         """
         Performs inner join on two arrays of dictionaries based on a common key.

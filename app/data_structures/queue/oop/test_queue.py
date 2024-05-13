@@ -1,5 +1,5 @@
 import unittest
-from app.data_structures.queue.poo.queue import Queue
+from app.data_structures.queue.oop.queue import Queue
 
 
 class TestQueue(unittest.TestCase):

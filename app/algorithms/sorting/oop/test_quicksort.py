@@ -1,5 +1,5 @@
 import unittest
-from app.algorithms.sorting.poo.quicksort import QuickSort
+from app.algorithms.sorting.oop.quicksort import QuickSort
 
 
 class QuickSortAlgorithmTest(unittest.TestCase):

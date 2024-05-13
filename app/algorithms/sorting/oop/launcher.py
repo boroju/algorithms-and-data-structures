@@ -1,5 +1,5 @@
-from app.algorithms.sorting.poo.mergesort import MergeSort
-from app.algorithms.sorting.poo.quicksort import QuickSort
+from app.algorithms.sorting.oop.mergesort import MergeSort
+from app.algorithms.sorting.oop.quicksort import QuickSort
 
 # Test the algorithms
 if __name__ == '__main__':

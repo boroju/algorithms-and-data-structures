@@ -1,5 +1,5 @@
 from typing import List, Dict
-from app.algorithms.sorting.poo.mergesort import MergeSort
+from app.algorithms.sorting.oop.mergesort import MergeSort
 
 
 class InnerJoinMergeSort:
