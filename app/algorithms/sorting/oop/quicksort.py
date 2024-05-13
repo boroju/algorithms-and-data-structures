@@ -1,5 +1,5 @@
 from typing import List
-from app.algorithms.sorting.poo.sort_algorithms import SortAlgorithm
+from app.algorithms.sorting.oop.sort_algorithms import SortAlgorithm
 
 
 class QuickSort(SortAlgorithm):
