@@ -93,31 +93,72 @@ class LRUCache:
             self.head.next = new_node
 
 
-if __name__ == '__main__':
-    # Create an LRU Cache with capacity 3
-    cache = LRUCache(3)
+if __name__ == "__main__":
+    # Initialize the LRUCache with capacity 5
+    cache = LRUCache(5)
 
-    # Insert key-value pairs into the cache
-    cache.put(1, 10)
-    cache.put(2, 20)
-    cache.put(3, 30)
+    print("Action: put(1, 1)")
+    cache.put(1, 1)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Retrieve values from the cache
-    print(cache.get(1))  # Output: 10
-    print(cache.get(2))  # Output: 20
-    print(cache.get(3))  # Output: 30
+    print("Action: put(2, 3)")
+    cache.put(2, 3)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Insert a new key-value pair, evicting the least recently used item (key=1)
-    cache.put(4, 40)
+    print("Action: put(3, 4)")
+    cache.put(3, 4)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Retrieve values from the cache
-    print(cache.get(1))  # Output: -1 (key 1 is evicted)
-    print(cache.get(2))  # Output: 20
-    print(cache.get(3))  # Output: 30
-    print(cache.get(4))  # Output: 40
+    print("Action: put(4, 7)")
+    cache.put(4, 7)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Update a key-value pair
-    cache.put(3, 33)
+    print("Action: put(6, 10)")
+    cache.put(6, 10)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Retrieve values from the cache
-    print(cache.get(3))  # Output: 33 (value of key 3 is updated)
+    print("Action: get(1)")
+    print("Output: ", cache.get(1))
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Action: get(3)")
+    print("Output: ", cache.get(3))
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Action: put(1, 5)")
+    cache.put(1, 5)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Action: put(12, 7)")
+    cache.put(12, 7)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Action: put(5, 2)")
+    cache.put(5, 2)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Action: get(4)")
+    print("Output: ", cache.get(4))
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
