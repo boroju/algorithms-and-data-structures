@@ -1,4 +1,5 @@
 import time
+import datetime
 
 
 class ListNode:
@@ -120,32 +121,64 @@ class LRUCacheWithExpiration:
 # The _remove_node method is added to the LRUCache class to remove a given node from the linked list. This method is used internally when removing expired items from the cache.
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Create an LRU Cache with capacity 3 and maximum time T of 5 seconds
     cache = LRUCacheWithExpiration(3, 5)
 
-    # Insert key-value pairs into the cache
+    print("Current time:", datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
+
+    print("Action: put(1, 10)")
     cache.put(1, 10)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Action: put(2, 20)")
+    time.sleep(1)
     cache.put(2, 20)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Action: put(3, 30)")
+    time.sleep(1)
     cache.put(3, 30)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Retrieve values from the cache
-    print(cache.get(1))  # Output: 10 (within max time T)
-    print(cache.get(2))  # Output: 20 (within max time T)
-    print(cache.get(3))  # Output: 30 (within max time T)
+    print("Retrieve values from the cache:")
+    print("Output for key 1:", cache.get(1))  # Output: 10 (within max time T)
+    print("Output for key 2:", cache.get(2))  # Output: 20 (within max time T)
+    print("Output for key 3:", cache.get(3))  # Output: 30 (within max time T)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Wait for 6 seconds (to exceed max time T for key 1)
-    time.sleep(6)
+    print("Wait for 6 seconds (to exceed max time T for key 1)")
+    time.sleep(4)
+    print("Current time:", datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
 
-    # Retrieve values from the cache again
-    print(cache.get(1))  # Output: -1 (expired, key 1 is removed)
-    print(cache.get(2))  # Output: 20 (within max time T)
-    print(cache.get(3))  # Output: 30 (within max time T)
+    print("Retrieve values from the cache again:")
+    print("Output for key 1:", cache.get(1))  # Output: -1 (expired, key 1 is removed)
+    print("Output for key 2:", cache.get(2))  # Output: 20 (within max time T)
+    print("Output for key 3:", cache.get(3))  # Output: 30 (within max time T)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Insert a new key-value pair, evicting the least recently used item (key=2)
+    print("Insert a new key-value pair (4, 40), evicting the least recently used item (key=2)")
     cache.put(4, 40)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
 
-    # Retrieve values from the cache
-    print(cache.get(2))  # Output: -1 (expired, key 2 is removed)
-    print(cache.get(3))  # Output: 30 (within max time T)
-    print(cache.get(4))  # Output: 40 (within max time T)
+    print("Retrieve values from the cache:")
+    print("Output for key 2:", cache.get(2))  # Output: -1 (expired, key 2 is removed)
+    print("Output for key 3:", cache.get(3))  # Output: 30 (within max time T)
+    print("Output for key 4:", cache.get(4))  # Output: 40 (within max time T)
+    print("LRU Cache:")
+    print({key: (node.key, node.value) for key, node in cache.cache.items()})
+    print("-----------------------------------------------------------------")
+
+    print("Current time:", datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))
